@@ -1,29 +1,40 @@
 import { extendTheme } from '@chakra-ui/react';
+import Link from './LinkTheme';
 
-const Link = {
-  baseStyle: {
-    fontWeight: '500',
-    textAlign: 'center',
-    p: '1rem',
-    d: 'block',
-    _hover: {
-      textDecoration: 'none'
-    }
-  },
+const Button = {
+  baseStyle: {},
   sizes: {},
-  variants: {},
+  variants: {
+    primary: () => ({
+      bg: 'tertiary',
+      color: 'secondary',
+      _hover: {
+        boxShadow: 'lg'
+      }
+    })
+  },
   defaultProps: {}
 };
 
 const theme = extendTheme({
+  styles: {
+    global: {
+      body: {
+        bg: '#FFFFFF'
+      }
+    }
+  },
   initialColorMode: 'light',
   useSystemColorMode: false,
   colors: {
-    primary: '#0b3765',
-    secondary: '#FFFFFF'
+    primary: '#1A202C',
+    secondary: '#FFFFFF',
+    tertiary: '#0B3765',
+    quaternary: '#9E9E9E'
   },
   components: {
-    Link
+    Link,
+    Button
   }
 });
 

@@ -1,12 +1,17 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { Header } from './Header';
+import Header from './Header';
 
 describe('Header', () => {
-  it('renders a Header', () => {
+  it('renders Header with a navbar list', () => {
     render(<Header />);
 
-    const heading = screen.getByText(/about me/i);
-    expect(heading).toBeInTheDocument();
+    const aboutMe = screen.getByText(/about me/i);
+    const work = screen.getByText(/work/i);
+    const projects = screen.getByText(/projects/i);
+
+    expect(aboutMe).toBeInTheDocument();
+    expect(work).toBeInTheDocument();
+    expect(projects).toBeInTheDocument();
   });
 });
