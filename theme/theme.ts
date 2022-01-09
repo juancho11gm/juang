@@ -1,41 +1,24 @@
-import { extendTheme } from '@chakra-ui/react';
+import { extendTheme, ThemeConfig } from '@chakra-ui/react';
 import Link from './LinkTheme';
+import Button from './ButtonTheme';
 
-const Button = {
-  baseStyle: {},
-  sizes: {},
-  variants: {
-    primary: () => ({
-      bg: 'tertiary',
-      color: 'secondary',
-      _hover: {
-        boxShadow: 'lg'
-      }
-    })
-  },
-  defaultProps: {}
+const colors = {
+  primary: '#1A202C',
+  secondary: '#FFFFFF',
+  tertiary: '#0B3765',
+  quaternary: '#9E9E9E'
 };
 
-const theme = extendTheme({
-  styles: {
-    global: {
-      body: {
-        bg: '#FFFFFF'
-      }
-    }
-  },
+const config: ThemeConfig = {
   initialColorMode: 'light',
-  useSystemColorMode: false,
-  colors: {
-    primary: '#1A202C',
-    secondary: '#FFFFFF',
-    tertiary: '#0B3765',
-    quaternary: '#9E9E9E'
-  },
-  components: {
-    Link,
-    Button
-  }
-});
+  useSystemColorMode: false
+};
+
+const components = {
+  Link,
+  Button
+};
+
+const theme = extendTheme({ config, colors, components });
 
 export default theme;
